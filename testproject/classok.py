@@ -1,33 +1,33 @@
 import time
-import locators
+import lokatorok
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 
-class test_Sign_upLap():
-    def __init__(self):
+class TestSign_upLap(object):
+    def setup(self):
         self.options = Options()
         self.options.headless = True
         self.driver = webdriver.Chrome(options=self.options)
-        self.driver.get(locators.signuplap)
-        self.username = self.driver.find_element_by_xpath(locators.username)
-        self.emil = self.driver.find_element_by_xpath(locators.emil)
-        self.password = self.driver.find_element_by_xpath(locators.password)
-        self.submit = self.driver.find_element_by_xpath(locators.submit)  # Sign up felirat.
+        self.driver.get(lokatorok.signuplap)
+        self.username = self.driver.find_element_by_xpath(lokatorok.username)
+        self.emil = self.driver.find_element_by_xpath(lokatorok.emil)
+        self.password = self.driver.find_element_by_xpath(lokatorok.password)
+        self.submit = self.driver.find_element_by_xpath(lokatorok.submit)  # Sign up felirat.
 
     def teardown(self): # Lerombolás.
         self.driver.close()
 
     def hibaablak(self):
-        self.felirat = self.driver.find_element_by_xpath(locators.failed)
-        self.reszlet = self.driver.find_element_by_xpath(locators.reszlet)
-        self.failed_okgomb = self.driver.find_element_by_xpath(locators.failed_okgomb)
+        self.felirat = self.driver.find_element_by_xpath(lokatorok.failed)
+        self.reszlet = self.driver.find_element_by_xpath(lokatorok.reszlet)
+        self.failed_okgomb = self.driver.find_element_by_xpath(lokatorok.failed_okgomb)
         #self.userhiba = locators.userhiba  # 4 elemű lista.
 
     def sikerablak(self):
-        self.welcome = self.driver.find_element_by_xpath(locators.welcome)
-        self.successful = self.driver.find_element_by_xpath(locators.successful)
-        self.successful_okgomb = self.driver.find_element_by_xpath(locators.successful_okgomb)
+        self.welcome = self.driver.find_element_by_xpath(lokatorok.welcome)
+        self.successful = self.driver.find_element_by_xpath(lokatorok.successful)
+        self.successful_okgomb = self.driver.find_element_by_xpath(lokatorok.successful_okgomb)
 
     def test_01_rossz_mezok(self, a, b, c, d):
         if a == "":

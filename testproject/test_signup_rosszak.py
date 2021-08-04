@@ -1,17 +1,14 @@
 import randomstring
-import locators
+import lokatorok
 import classok
-import pytest
 
-lap = classok.test_Sign_upLap()
-assert lap.test_01_rossz_mezok("", "", "", locators.userhiba[0])
-lap = classok.test_Sign_upLap()
-assert lap.test_01_rossz_mezok(randomstring.nev(), "", "", locators.userhiba[1])
-lap = classok.test_Sign_upLap()
-assert lap.test_01_rossz_mezok(randomstring.nev(), randomstring.emil(), "", locators.userhiba[2])
-lap = classok.test_Sign_upLap()
-assert lap.test_01_rossz_mezok(randomstring.nev(), randomstring.emil(), "", locators.userhiba[2])
-lap = classok.test_Sign_upLap()
-assert lap.test_01_rossz_mezok(randomstring.nev(), randomstring.emil(), randomstring.name(), locators.userhiba[3])
-
-
+lap = classok.TestSign_upLap()
+assert lap.test_01_rossz_mezok("", "", "", lokatorok.userhiba[0])
+lap = classok.TestSign_upLap()
+assert lap.test_01_rossz_mezok(randomstring.nev(), "", "", lokatorok.userhiba[1])
+lap = classok.TestSign_upLap()
+assert lap.test_01_rossz_mezok(randomstring.nev(), randomstring.emil(), "", lokatorok.userhiba[2])
+lap = classok.TestSign_upLap()
+assert lap.test_01_rossz_mezok(randomstring.nev(), randomstring.emil(), "", lokatorok.userhiba[2])
+lap = classok.TestSign_upLap()
+assert lap.test_01_rossz_mezok(randomstring.nev(), randomstring.emil(), randomstring.name(), lokatorok.userhiba[3])
