@@ -4,7 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 
-class TestSign_upLap(object):
+class TestSign_upLap():
     def setup(self):
         self.options = Options()
         self.options.headless = True
