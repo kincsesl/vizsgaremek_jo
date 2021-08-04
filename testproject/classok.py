@@ -4,10 +4,10 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 
-class TestSign_upLap():
+class TestSign_upLap(object):
     def setup(self):
         self.options = Options()
-        self.options.headless = True
+        #self.options.headless = True
         self.driver = webdriver.Chrome(options=self.options)
         self.driver.get(lokatorok.signuplap)
         self.username = self.driver.find_element_by_xpath(lokatorok.username)
@@ -15,14 +15,14 @@ class TestSign_upLap():
         self.password = self.driver.find_element_by_xpath(lokatorok.password)
         self.submit = self.driver.find_element_by_xpath(lokatorok.submit)  # Sign up felirat.
 
-    def teardown(self): # Lerombolás.
+    def teardown(self):  # Lerombolás.
         self.driver.close()
 
     def hibaablak(self):
         self.felirat = self.driver.find_element_by_xpath(lokatorok.failed)
         self.reszlet = self.driver.find_element_by_xpath(lokatorok.reszlet)
         self.failed_okgomb = self.driver.find_element_by_xpath(lokatorok.failed_okgomb)
-        #self.userhiba = locators.userhiba  # 4 elemű lista.
+        # self.userhiba = locators.userhiba  # 4 elemű lista.
 
     def sikerablak(self):
         self.welcome = self.driver.find_element_by_xpath(lokatorok.welcome)
@@ -49,5 +49,4 @@ class TestSign_upLap():
         log = self.reszlet.text == d
         self.failed_okgomb.click()
         self.driver.close()
-        #return self.reszlet.text ==
         return log
